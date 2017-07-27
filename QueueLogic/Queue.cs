@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
@@ -25,6 +26,7 @@ namespace QueueLogic
         public Queue() : this(10) { }
         public Queue(int capacity)
         {
+            if(capacity<1) throw new ArgumentOutOfRangeException($"{nameof(capacity)} must be natural");
             elements = new T[capacity];
             this.capacity = capacity;
             head = -1;
@@ -33,6 +35,7 @@ namespace QueueLogic
         }
         public Queue(IEnumerable<T> collection)
         {
+            if(collection==null) throw new ArgumentNullException();
             capacity = collection.Count();
             elements = new T[capacity];
             head = -1;
@@ -50,7 +53,7 @@ namespace QueueLogic
         {
             get
             {
-                if (IsEmpty()) throw new InvalidOperationException("стек пуст");
+                if (IsEmpty()) throw new InvalidOperationException("empty stack");
                 return elements[(head + 1) % capacity];
             }
         }
