@@ -86,7 +86,7 @@ namespace QueueLogic
         /// <returns>retrieved element</returns>
         public T DeQueue()
         {
-            if (IsEmpty()) throw new InvalidOperationException("стек пуст");
+            if (IsEmpty()) throw new InvalidOperationException("empty stack");
             count--;
             return elements[++head % capacity];
         }
