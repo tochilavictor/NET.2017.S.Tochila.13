@@ -101,7 +101,7 @@ namespace QueueLogic
             return new Enumerator(this);
         }
 
-        public struct Enumerator : IEnumerator<T>
+        private struct Enumerator : IEnumerator<T>
         {
             private Queue<T> queue;
             private int cursor;
