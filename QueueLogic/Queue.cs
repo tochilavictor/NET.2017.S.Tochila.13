@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace QueueLogic
 {
     /// <summary>
-    /// implementation structure of data LIFO
+    /// implementation structure of data LILO
     /// </summary>
     /// <typeparam name="T">type of data</typeparam>
     public class Queue<T> : IEnumerable<T>
